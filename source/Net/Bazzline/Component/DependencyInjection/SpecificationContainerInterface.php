@@ -28,23 +28,22 @@ namespace Net\Bazzline\Component\DependencyInjection;
 interface SpecificationContainerInterface
 {
     /**
-     * @param string $methodName
-     * @param array $arguments
+     * @param MethodCallInterface $methodCall
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
      */
-    public function addMethodCall($methodName, array $arguments);
+    public function addMethodCall(MethodCallInterface $methodCall);
 
     /**
-     * @return array
+     * @return array|MethodCallInterface[]
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
      */
     public function getMethodCalls();
 
     /**
-     * @param array $methodCalls[$methodName => array $constructorArguments[$name => $value]]
+     * @param array|MethodCallInterface[]
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
@@ -52,36 +51,25 @@ interface SpecificationContainerInterface
     public function setMethodCalls(array $methodCalls);
 
     /**
-     * @param array $argument
-     * @param int $index
+     * @param mixed $value
      * @return $this
-     * @throw InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
      */
-    public function addConstructorArgument($argument, $index);
+    public function addConstructorParameter($value);
 
     /**
-     * @param array $arguments
+     * @param array $parameters
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-29
      */
-    public function setConstructorArguments(array $arguments);
+    public function setConstructorParameters(array $parameters);
 
     /**
-     * @param int $index
-     * @return mixed
-     * @throws InvalidArgumentException
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-28
-     */
-    public function getConstructorArgument($index);
-
-    /**
-     * @return array $constructorArguments[$index => array[$name => $value]]
+     * @return array $constructorParameters[$index => array[$name => $value]]
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-20
      */
-    public function getConstructorArguments();
+    public function getConstructorParameters();
 }

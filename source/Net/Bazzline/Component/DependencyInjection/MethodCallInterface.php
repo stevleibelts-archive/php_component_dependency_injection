@@ -7,13 +7,13 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class MethodCall
+ * Class MethodCallInterface
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-interface MethodCall
+interface MethodCallInterface
 {
     /**
      * @param mixed $value
