@@ -1,0 +1,32 @@
+{
+    "name": "net_bazzline/component_dependency_injection",
+    "type": "library",
+    "description": "php component dependency injection specification container",
+    "keywords": ["php", "net_bazzline", "component", "dependency injection", "specification container"],
+    "homepage": "https://github.com/stevleibelt/php_component_dependency_injection",
+    "license": "LGPLv3",
+    "authors": [
+	    {
+            "name": "Stev Leibelt",
+            "email": "artodeto@arcor.de",
+            "homepage": "http://artodeto.bazzline.net",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.3",
+        "net_bazzline/php_component_converter": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "mikey179/vfsStream": "dev-master",
+        "mockery/mockery": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Net\\Bazzline\\Component\\DependencyInjection\\": "source/",
+            "Test\\Net\\Bazzline\\Component\\DependencyInjection\\": "test/"
+        }
+    }
+}
