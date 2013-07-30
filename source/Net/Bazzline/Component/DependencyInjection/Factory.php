@@ -17,16 +17,16 @@ class Factory
 {
     /**
      * @param Configuration $configuration
-     * @return SpecificationContainer
+     * @return Specification
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-29
      */
     public function create(Configuration $configuration)
     {
-        $container = new SpecificationContainer();
+        $container = new Specification();
 
         if ($configuration->hasKey('constructor')) {
-            $container->setConstructorParameters($configuration->getByKey('constructor'));
+            $container->setConstructorArguments($configuration->getByKey('constructor'));
         }
 
         if ($configuration->hasKey('methodCalls')) {
