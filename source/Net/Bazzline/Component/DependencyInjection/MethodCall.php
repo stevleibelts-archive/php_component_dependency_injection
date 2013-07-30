@@ -40,7 +40,7 @@ class MethodCall implements MethodCallInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function addParameter($value)
     {
@@ -50,7 +50,7 @@ class MethodCall implements MethodCallInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getMethodName()
     {
@@ -58,7 +58,7 @@ class MethodCall implements MethodCallInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getParameters()
     {
@@ -66,7 +66,7 @@ class MethodCall implements MethodCallInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setMethodName($name)
     {
@@ -82,7 +82,7 @@ class MethodCall implements MethodCallInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setParameters(array $values)
     {

@@ -40,7 +40,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function addMethodCall(MethodCallInterface $methodCall)
     {
@@ -50,7 +50,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getMethodCalls()
     {
@@ -58,7 +58,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setMethodCalls(array $methodCalls)
     {
@@ -74,7 +74,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function addArgument($value)
     {
@@ -101,7 +101,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getArguments()
     {
@@ -125,7 +125,7 @@ class Definition implements DefinitionInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function setArguments(array $arguments)
     {
