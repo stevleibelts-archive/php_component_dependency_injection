@@ -8,7 +8,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
 
 /*
     specification:
-        constructor:
+        arguments:
             'foo'
             'My\Other\Class'
         methodCalls:
@@ -19,7 +19,9 @@ namespace Net\Bazzline\Component\DependencyInjection;
                 'Basic'
                 */
 /**
- * Class SpecificationInterface
+ * Class SpecificationInterface.
+ * Arguments are constructor parameter values.
+ * MethodCalls are defined separately.
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
@@ -51,25 +53,35 @@ interface SpecificationInterface
     public function setMethodCalls(array $methodCalls);
 
     /**
-     * @param mixed $value
-     * @return $this
+     * @param mixed $argument
+     * @return int - index or replaced argument
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
      */
-    public function addConstructorArgument($value);
+    public function addArgument($argument);
 
     /**
-     * @param array $parameters
-     * @return $this
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-29
-     */
-    public function setConstructorArguments(array $parameters);
-
-    /**
-     * @return array $constructorParameters[$index => array[$name => $value]]
+     * @return array $arguments[$index => array[$name => $value]]
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-20
      */
-    public function getConstructorArguments();
+    public function getArguments();
+
+    /**
+     * @param int $index
+     * @param mixed $argument
+     * @return int - index or replaced argument
+     * @throw InvalidArgumentException
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-30
+     */
+    public function replaceArgument($index, $argument);
+
+    /**
+     * @param array $parameters
+     * @return int - number of added arguments
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-29
+     */
+    public function setArguments(array $parameters);
 }

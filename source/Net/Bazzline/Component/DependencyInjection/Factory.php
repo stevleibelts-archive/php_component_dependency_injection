@@ -26,7 +26,7 @@ class Factory
         $container = new Specification();
 
         if ($configuration->hasKey('constructor')) {
-            $container->setConstructorArguments($configuration->getByKey('constructor'));
+            $container->setArguments($configuration->getByKey('constructor'));
         }
 
         if ($configuration->hasKey('methodCalls')) {

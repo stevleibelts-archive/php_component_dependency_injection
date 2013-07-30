@@ -20,7 +20,7 @@ class Specification implements SpecificationInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-29
      */
-    protected $constructorParameters;
+    protected $arguments;
 
     /**
      * @var array
@@ -35,7 +35,7 @@ class Specification implements SpecificationInterface
      */
     public function __construct()
     {
-        $this->constructorParameters = array();
+        $this->arguments = array();
         $this->methodCalls = array();
     }
 
@@ -76,28 +76,47 @@ class Specification implements SpecificationInterface
     /**
      * {@inheritDoc}
      */
-    public function addConstructorArgument($value)
+    public function addArgument($value)
     {
-        $this->constructorParameters[] = $value;
+        $this->arguments[] = $value;
 
-        return $this;
+        $index = end($this->arguments);
+        reset($this->arguments);
+
+        return $index;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function setConstructorArguments(array $parameters)
+    public function getArguments()
     {
-        $this->constructorParameters = $parameters;
+        $this->arguments;
+    }
 
-        return $this;
+    /**
+     * {@inheritdoc}
+     */
+    public function replaceArgument($index, $argument)
+    {
+        if (!isset($this->arguments[$index])) {
+            throw new InvalidArgumentException(
+                'No argument exists for provided index "' . $index . '"'
+            );
+        }
+
+        $this->arguments[$index] = $argument;
+
+        return $index;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getConstructorArguments()
+    public function setArguments(array $arguments)
     {
-        $this->constructorParameters;
+        $this->arguments = $arguments;
+
+        return count($this->arguments);
     }
 }
