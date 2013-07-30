@@ -62,6 +62,15 @@ interface DefinitionInterface
     public function addArgument($argument);
 
     /**
+     * @param int $index
+     * @return mixed
+     * @throws InvalidArgumentException
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-30
+     */
+    public function getArgument($index);
+
+    /**
      * @return array $arguments[$index => array[$name => $value]]
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-20
@@ -72,7 +81,7 @@ interface DefinitionInterface
      * @param int $index
      * @param mixed $argument
      * @return int - index or replaced argument
-     * @throw InvalidArgumentException
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-30
      */

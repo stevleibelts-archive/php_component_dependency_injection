@@ -87,6 +87,20 @@ class Definition implements DefinitionInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function getArgument($index)
+    {
+        if (!isset($this->arguments[$index])) {
+            throw new InvalidArgumentException(
+                'No argument exists for provided index "' . $index . '"'
+            );
+        }
+
+        return $this->arguments[$index];
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function getArguments()
