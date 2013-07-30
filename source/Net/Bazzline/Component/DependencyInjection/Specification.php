@@ -7,13 +7,13 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class SpecificationContainer
+ * Class Specification
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-class SpecificationContainer implements SpecificationContainerInterface
+class Specification implements SpecificationContainerInterface
 {
     /**
      * @var array

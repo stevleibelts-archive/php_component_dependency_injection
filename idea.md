@@ -27,3 +27,8 @@ My\Class:
 * One factory that is using a specification object
 * Each factory gets the specification object and the servicelocator injected or just the config (scoped to the object?)
 * Servicelocator has to take care of create a specification object from the config
+
+# Hint
+
+Parameter is what you define in a method.
+Argument is the value you add when you call the method.

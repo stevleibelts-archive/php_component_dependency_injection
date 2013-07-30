@@ -7,13 +7,13 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class SpecificationContainerFactory
+ * Class Factory
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-class SpecificationContainerFactory
+class Factory
 {
     /**
      * @param Configuration $configuration
