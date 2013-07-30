@@ -56,7 +56,7 @@ interface SpecificationInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-28
      */
-    public function addConstructorParameter($value);
+    public function addConstructorArgument($value);
 
     /**
      * @param array $parameters
@@ -64,12 +64,12 @@ interface SpecificationInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-29
      */
-    public function setConstructorParameters(array $parameters);
+    public function setConstructorArguments(array $parameters);
 
     /**
      * @return array $constructorParameters[$index => array[$name => $value]]
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-20
      */
-    public function getConstructorParameters();
+    public function getConstructorArguments();
 }

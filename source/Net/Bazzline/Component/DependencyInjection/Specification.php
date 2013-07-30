@@ -13,7 +13,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-class Specification implements SpecificationContainerInterface
+class Specification implements SpecificationInterface
 {
     /**
      * @var array
@@ -76,7 +76,7 @@ class Specification implements SpecificationContainerInterface
     /**
      * {@inheritDoc}
      */
-    public function addConstructorParameter($value)
+    public function addConstructorArgument($value)
     {
         $this->constructorParameters[] = $value;
 
@@ -86,7 +86,7 @@ class Specification implements SpecificationContainerInterface
     /**
      * {@inheritDoc}
      */
-    public function setConstructorParameters(array $parameters)
+    public function setConstructorArguments(array $parameters)
     {
         $this->constructorParameters = $parameters;
 
@@ -96,7 +96,7 @@ class Specification implements SpecificationContainerInterface
     /**
      * {@inheritDoc}
      */
-    public function getConstructorParameters()
+    public function getConstructorArguments()
     {
         $this->constructorParameters;
     }
