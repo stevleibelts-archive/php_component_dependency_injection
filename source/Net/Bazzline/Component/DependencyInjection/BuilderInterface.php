@@ -7,33 +7,36 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class DefinitionAwareInterface
+ * Class BuilderInterface
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-31
  */
-interface DefinitionAwareInterface
+interface BuilderInterface extends DefinitionAwareInterface
 {
     /**
-     * @param DefinitionInterface $definition
+     * @return string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-07-31
+     */
+    public function getClassName();
+
+    /**
+     * @param string $className
      * @return $this
+     * @throws InvalidArgumentException - if provided class does not exists
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-31
      */
-    public function setDefinition(DefinitionInterface $definition);
+    public function setClassName($className);
 
     /**
-     * @return DefinitionInterface
+     * Builds class by provided definition.
+     *
+     * @return mixed
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-31
      */
-    public function getDefinition();
-
-    /**
-     * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
-     * @since 2013-07-31
-     */
-    public function hasDefinition();
+    public function build();
 }
