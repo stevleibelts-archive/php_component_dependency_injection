@@ -63,6 +63,11 @@ A configuration describes:
 * Uses definitions/declarations for creating classes
 * Resolves dependency by using definition based strategies
 
+## Managers
+
+* Can be injected if class implements Serviceable or Manageable interface
+* If injected, the class simple calls manager->getFoo(), manager->getBar to setup itself by using the manager
+
 # Links
 
 * [Beginners guide to dependency injection](http://www.theserverside.com/news/1321158/A-beginners-guide-to-Dependency-Injection)
