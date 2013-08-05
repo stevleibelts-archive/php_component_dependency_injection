@@ -2,6 +2,11 @@
 
 php component dependency injection by using a specification container
 
+# Why?
+
+* Understand dependency injection by writing own di container
+* Create di container with *dump*/*cache* method that generates pure php code by reading configuration
+
 # Influenced By 
 
 (alexanderduring)[https://github.com/alexanderduring]
@@ -25,7 +30,7 @@ Builders are more like artists, you have to set up a lot of parameters to define
 A configuration describes:
 
 * Relationships between interfaces ans implementor
-* Dependencies between different services
+* Dependencies between different services by references
 
 ## Workflow for a builder
 
@@ -33,6 +38,14 @@ A configuration describes:
 * Instantiates DI container
 * Resolve dependencies
 * Create implementation class
+
+## DI Container
+
+* Simple class
+* Creates services by lazy loading (when needed)
+* Uses instance pooling
+* Uses definitions/declarations for creating classes
+* Resolves dependency by using definition based strategies
 
 # Links
 
