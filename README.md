@@ -25,13 +25,27 @@ Builders are more like artists, you have to set up a lot of parameters to define
 
 * Constructor
 * Setter methods with type hints
-* AwareInterfaces
+* AwareInterfaces or InjectInterfaces
+
+### InjectInterfaces
+
+InjectInterfaces provides one method:
+
+* injectClass
+
+### AwareInterfaces
+
+AwareInterfaces provides three methods:
+
+* setClass
+* getClass
+* hasClass
 
 ## Configuration
 
 A configuration describes:
 
-* Relationships between interfaces ans implementor
+* Relationships between interfaces and implementor
 * Dependencies between different services by references
 
 ## Workflow for a builder
