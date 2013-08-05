@@ -6,6 +6,8 @@ php component dependency injection by using a specification container
 
 * Understand dependency injection by writing own di container
 * Create di container with *dump*/*cache* method that generates pure php code by reading configuration
+* Implement a "auto discovery" mode that simple instantiates all dependent classes and injects them
+* Create console app that analyze given class and returns a basic configuration
 
 # Influenced By 
 
@@ -50,3 +52,4 @@ A configuration describes:
 # Links
 
 * [Beginners guide to dependency injection](http://www.theserverside.com/news/1321158/A-beginners-guide-to-Dependency-Injection)
+* [Inversion Of Controll](http://martinfowler.com/articles/injection.html)
