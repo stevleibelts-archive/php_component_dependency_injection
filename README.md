@@ -74,3 +74,17 @@ A configuration describes:
 * [Inversion Of Controll](http://martinfowler.com/articles/injection.html)
 * [DIP In The Wild](http://martinfowler.com/articles/dipInTheWild.html)
 * [List Of Development Philosophies](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
+
+# Notes
+
+## Dependency Injection
+
+Is about how one object knows about another, dependent object.
+
+## Inversion Of Control
+
+Inversion of control is about who initiates messages. Does your code call into a framework, or does it plug something into a framework, and then the framework calls back?
+
+## Dependency Inversion Principle
+
+Dependence Inversion is about the shape of the object upon which the code depends. Does your application really needs to know that the used storage is a database with sql support or does your application only needs a kind of storage with put and get methods?
