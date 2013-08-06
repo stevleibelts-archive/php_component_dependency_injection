@@ -72,3 +72,5 @@ A configuration describes:
 
 * [Beginners guide to dependency injection](http://www.theserverside.com/news/1321158/A-beginners-guide-to-Dependency-Injection)
 * [Inversion Of Controll](http://martinfowler.com/articles/injection.html)
+* [DIP In The Wild](http://martinfowler.com/articles/dipInTheWild.html)
+* [List Of Development Philosophies](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
