@@ -92,3 +92,8 @@ Inversion of control is about who initiates messages. Does your code call into a
 ## Dependency Inversion Principle
 
 Dependence Inversion is about the shape of the object upon which the code depends. Does your application really needs to know that the used storage is a database with sql support or does your application only needs a kind of storage with put and get methods?
+
+* Taking an unwieldy API with too many methods and taming it.
+* Removing a mismatch between the abstraction level of a library and the domain
+* Rejecting an external constraint that dictates a particular style of communication
+* Taking control of time itself
