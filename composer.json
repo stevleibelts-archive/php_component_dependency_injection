@@ -26,7 +26,8 @@
     "autoload": {
         "psr-0": {
             "Net\\Bazzline\\Component\\DependencyInjection\\": "source/",
-            "Test\\Net\\Bazzline\\Component\\DependencyInjection\\": "test/"
+            "Test\\Net\\Bazzline\\Component\\DependencyInjection\\": "test/",
+            "Example\\": "example/"
         }
     }
 }
