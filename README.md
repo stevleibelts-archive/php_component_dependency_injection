@@ -9,9 +9,10 @@ php component dependency injection by using a specification container
 * Implement a "auto discovery" mode that simple instantiates all dependent classes and injects them
 * Create console app that analyze given class and returns a basic configuration
 
-# Influenced By 
+# Questions / ToDo
 
-(alexanderduring)[https://github.com/alexanderduring]
+* Should or could the di container holds the number of references of a shared object and removes it from its own instance pool when he is the only one that holds an reference to that object?
+* First implementation should only deal with pure php configuration file, later versions can use the [php configuration converter](https://github.com/stevleibelt/php_component_converter) to handle different formats
 
 # Notes
 
