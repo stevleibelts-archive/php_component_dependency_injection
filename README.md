@@ -14,6 +14,11 @@ php component dependency injection by using a specification container
 * Should or could the di container holds the number of references of a shared object and removes it from its own instance pool when he is the only one that holds an reference to that object?
 * First implementation should only deal with pure php configuration file, later versions can use the [php configuration converter](https://github.com/stevleibelt/php_component_converter) to handle different formats
 
+# Steps / Roadmap
+
+* Implement simple container that holds factories for [creating shared and not shared objects](http://tutorials.jenkov.com/dependency-injection/butterfly-container.html) (like a factory but with instance pooling)
+* Implement dependency injection with reflection class (as strategy)
+
 # Notes
 
 ## Builders and Factories
