@@ -1,4 +1,4 @@
-# php_component_dependency_injection
+# PHP Component Dependency Injection
 
 php component dependency injection by using a specification container
 
@@ -8,6 +8,7 @@ php component dependency injection by using a specification container
 * Create di container with *dump*/*cache* method that generates pure php code by reading configuration
 * Implement a "auto discovery" mode that simple instantiates all dependent classes and injects them
 * Create console app that analyze given class and returns a basic configuration
+* Use dependency injection can be a part of multi language strategy
 
 # Questions / ToDo
 
@@ -18,6 +19,9 @@ php component dependency injection by using a specification container
 
 * Implement simple container that holds factories for [creating shared and not shared objects](http://tutorials.jenkov.com/dependency-injection/butterfly-container.html) (like a factory but with instance pooling)
 * Implement dependency injection with reflection class (as strategy)
+* Implement configuration as strategy
+* Implement caching (dump plain php code to create an/dump a container as fully readable and not configurable code)
+* Harden the DSL (Domain Specific Language) for the configuration container
 
 # Notes
 
