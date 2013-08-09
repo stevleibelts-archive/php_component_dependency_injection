@@ -25,6 +25,14 @@ php component dependency injection by using a specification container
 
 # Notes
 
+## Definition
+
+    Dependency injection involves at least three elements:
+
+    * a dependent consumer,
+    * a declaration of a component's dependencies, defined as interface contracts,
+    * an injector (sometimes referred to as a provider or container) that creates instances of classes that implement a given dependency interface on request.
+
 ## Builders and Factories
 
 Factories are *stupid* creation classes where you are able to put in some parameters and simple get a new object. The effort of creating an object is quite low.
