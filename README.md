@@ -85,6 +85,7 @@ A configuration describes:
 * [DIP In The Wild](http://martinfowler.com/articles/dipInTheWild.html)
 * [List Of Development Philosophies](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
 * [What Is Dependency Injection](http://tutorials.jenkov.com/dependency-injection/index.html)
+* [Dependency Injection - Wikipedia](https://en.wikipedia.org/wiki/Dependency_injection#PHP)
 
 # Notes
 
