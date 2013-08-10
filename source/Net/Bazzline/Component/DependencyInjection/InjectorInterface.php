@@ -20,12 +20,13 @@ interface InjectorInterface
      *  injector simple creates a new instance of that class by each call.
      *
      * @param string $className
-     * @param DeclarationInterface $definition
+     * @param DeclarationInterface $declaration
      * @return $this
+     * @throws RuntimeException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function addConsumer($className, DeclarationInterface $definition = null);
+    public function addConsumer($className, DeclarationInterface $declaration = null);
 
     /**
      * Validates if given class name where add as consumer to the injector.
