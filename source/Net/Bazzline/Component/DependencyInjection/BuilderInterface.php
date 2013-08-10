@@ -13,7 +13,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-31
  */
-interface BuilderInterface extends DefinitionAwareInterface
+interface BuilderInterface extends DeclarationAwareInterface
 {
     /**
      * @return string

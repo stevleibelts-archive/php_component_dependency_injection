@@ -7,33 +7,33 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class DefinitionAwareInterface
+ * Class DeclarationAwareInterface
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-31
  */
-interface DefinitionAwareInterface
+interface DeclarationAwareInterface
 {
     /**
-     * @param DefinitionInterface $definition
+     * @param DeclarationInterface $definition
      * @return $this
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-31
      */
-    public function setDefinition(DefinitionInterface $definition);
+    public function setDeclaration(DeclarationInterface $definition);
 
     /**
-     * @return DefinitionInterface
+     * @return DeclarationInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-31
      */
-    public function getDefinition();
+    public function getDeclaration();
 
     /**
      * @return bool
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-31
      */
-    public function hasDefinition();
+    public function hasDeclaration();
 }

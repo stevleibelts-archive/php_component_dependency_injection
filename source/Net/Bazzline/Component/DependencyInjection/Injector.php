@@ -8,7 +8,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
 
 class Injector implements InjectorInterface
 {
-    public function addClass($className, DefinitionInterface $definition = null)
+    public function addClass($className, DeclarationInterface $definition = null)
     {
 
     }

@@ -15,5 +15,5 @@ namespace Net\Bazzline\Component\DependencyInjection;
  */
 interface InjectorInterface
 {
-    public function addClass($className, DefinitionInterface $definition = null);
+    public function addClass($className, DeclarationInterface $definition = null);
 }

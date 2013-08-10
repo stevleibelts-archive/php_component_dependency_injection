@@ -19,7 +19,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
                 'Basic'
                 */
 /**
- * Class DefinitionInterface.
+ * Class DeclarationInterface.
  * Arguments are constructor parameter values.
  * MethodCalls are defined separately.
  * Yes, influenced by http://symfony.com/doc/current/components/dependency_injection/definitions.html
@@ -28,7 +28,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-interface DefinitionInterface
+interface DeclarationInterface
 {
     /**
      * @param MethodCallInterface $methodCall
