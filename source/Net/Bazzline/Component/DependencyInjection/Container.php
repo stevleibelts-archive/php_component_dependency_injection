@@ -33,19 +33,19 @@ class Container implements ContainerInterface
     }
 
     /**
-     * Adds a class to the container. If you do not provide a declaration, the
+     * Adds a class to the container. If you do not provide a definition, the
      *  container simple creates a new instance of that class by each call.
      *
      * @param string $className
      * @param string $alias
-     * @param DeclarationInterface $declaration
+     * @param DefinitionInterface $definition
      * @return $this
      * @throws RuntimeException|InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      * @todo implement alias support
      */
-    public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null)
+    public function register($className, $alias = '', DefinitionInterface $definition = null)
     {
         if ($this->hasConsumer($className, $alias)) {
             throw new RuntimeException(
@@ -61,7 +61,7 @@ class Container implements ContainerInterface
             );
         }
 
-        if (is_null($declaration)) {
+        if (is_null($definition)) {
             $this->classNames[$hash] = new $className();
         } else {
             throw new InvalidArgumentException(

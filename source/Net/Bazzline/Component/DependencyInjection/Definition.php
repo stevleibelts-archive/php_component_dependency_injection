@@ -7,13 +7,13 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class Declaration
+ * Class Definition
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-07-29
  */
-class Declaration implements DeclarationInterface
+class Definition implements DefinitionInterface
 {
     /**
      * @var array

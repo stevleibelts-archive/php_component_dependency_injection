@@ -26,7 +26,7 @@ php component dependency injection by using a specification container
 
 # Notes
 
-## Declaration
+## Definition
 
     Dependency injection involves at least three elements:
 
@@ -90,7 +90,7 @@ A configuration describes:
 # Links
 
 * [Beginners guide to dependency injection](http://www.theserverside.com/news/1321158/A-beginners-guide-to-Dependency-Injection)
-* [Inversion Of Controll](http://martinfowler.com/articles/injection.html)
+* [Inversion Of Control](http://martinfowler.com/articles/injection.html)
 * [DIP In The Wild](http://martinfowler.com/articles/dipInTheWild.html)
 * [List Of Development Philosophies](http://en.wikipedia.org/wiki/List_of_software_development_philosophies)
 * [What Is Dependency Injection](http://tutorials.jenkov.com/dependency-injection/index.html)

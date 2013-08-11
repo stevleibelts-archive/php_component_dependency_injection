@@ -16,18 +16,18 @@ namespace Net\Bazzline\Component\DependencyInjection;
 interface ContainerInterface
 {
     /**
-     * Adds a class to the container. If you do not provide a declaration, the
+     * Adds a class to the container. If you do not provide a definition, the
      *  container simple creates a new instance of that class by each call.
      *
      * @param string $className
      * @param string $alias
-     * @param DeclarationInterface $declaration
-     * @return $this
+     * @param DefinitionInterface $definition
+     * @return string (consumer id)
      * @throws RuntimeException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null);
+    public function register($className, $alias = '', DefinitionInterface $definition = null);
 
     /**
      * Validates if given class name where add as consumer to the container.

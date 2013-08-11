@@ -58,7 +58,7 @@ class Example
     {
         $this->className = '\\Example\\UseContainerAsFactory\\Basic';
         $this->container = new Container();
-        $this->container->addConsumer($this->className);
+        $this->container->register($this->className);
 
         return $this;
     }

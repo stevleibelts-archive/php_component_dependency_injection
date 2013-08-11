@@ -7,7 +7,7 @@
 namespace Test\Net\Bazzline\Component\DependencyInjection;
 
 use Net\Bazzline\Component\DependencyInjection\Container;
-use Net\Bazzline\Component\DependencyInjection\Declaration;
+use Net\Bazzline\Component\DependencyInjection\Definition;
 
 /**
  * Class ContainerTest
@@ -43,7 +43,7 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerWithNotExistingClass()
     {
-        $this->container->addConsumer('\\Not\\Existing\\Class');
+        $this->container->register('\\Not\\Existing\\Class');
     }
 
     /**
@@ -55,8 +55,8 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerTwoTimes()
     {
-        $this->container->addConsumer(__CLASS__);
-        $this->container->addConsumer(__CLASS__);
+        $this->container->register(__CLASS__);
+        $this->container->register(__CLASS__);
     }
 
     /**
@@ -68,6 +68,6 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerWithDeclaration()
     {
-        $this->container->addConsumer(__CLASS__, '', new Declaration());
+        $this->container->register(__CLASS__, '', new Definition());
     }
 }
