@@ -20,31 +20,32 @@ interface InjectorInterface
      *  injector simple creates a new instance of that class by each call.
      *
      * @param string $className
+     * @param string $alias
      * @param DeclarationInterface $declaration
      * @return $this
      * @throws RuntimeException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function addConsumer($className, DeclarationInterface $declaration = null);
+    public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null);
 
     /**
      * Validates if given class name where add as consumer to the injector.
      *
-     * @param string $className
+     * @param string $classNameOrAlias
      * @return boolean
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-09-10
      */
-    public function hasConsumer($className);
+    public function hasConsumer($classNameOrAlias);
 
     /**
      * Returns a new or shared instance of a given class name.
      *
-     * @param string $className
+     * @param string $classNameOrAlias
      * @return null|mixed|object
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function getConsumer($className);
+    public function getConsumer($classNameOrAlias);
 }
