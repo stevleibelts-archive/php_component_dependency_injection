@@ -23,6 +23,13 @@ class Definition implements DefinitionInterface
     protected $arguments;
 
     /**
+     * @var
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected $isShared;
+
+    /**
      * @var array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-07-29
@@ -37,6 +44,7 @@ class Definition implements DefinitionInterface
     {
         $this->arguments = array();
         $this->methodCalls = array();
+        $this->setShared(true);
     }
 
     /**
@@ -148,5 +156,23 @@ class Definition implements DefinitionInterface
     public function hasArguments()
     {
         return (!empty($this->arguments));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setShared($shared)
+    {
+        $this->isShared = (bool) $shared;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function IsShared()
+    {
+        return $this->isShared;
     }
 }

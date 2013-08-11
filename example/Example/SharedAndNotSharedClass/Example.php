@@ -7,6 +7,7 @@
 namespace Example\SharedAndNotSharedClass;
 
 use Net\Bazzline\Component\DependencyInjection\Container;
+use Net\Bazzline\Component\DependencyInjection\Definition;
 
 include __DIR__ . '/../../../vendor/autoload.php';
 
@@ -64,7 +65,9 @@ class Example
     public function setup()
     {
         $this->classOne = '\\Example\\SharedAndNotSharedClass\\One';
-        $this->classOne = '\\Example\\SharedAndNotSharedClass\\Two';
+        $this->classTwo = '\\Example\\SharedAndNotSharedClass\\Two';
+        $definitionTwo = new Definition();
+
         $this->container = new Container();
         $this->container->register($this->classOne);
 
@@ -78,7 +81,7 @@ class Example
     public function andRun()
     {
         $objectOne = $this->container->getConsumer($this->classOne);
-        $objectTwo = $this->container->getConsumer($this->classOne);
+        $objectTwo = $this->container->getConsumer($this->classTwo);
         /**
          * @var \Example\AddClassAndCallIt\Basic $objectOne
          * @var \Example\AddClassAndCallIt\Basic $objectTwo

@@ -108,4 +108,19 @@ interface DefinitionInterface
      * @since 2013-08-11
      */
     public function hasArguments();
+
+    /**
+     * @param bool $isShared
+     * @return $this
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function setShared($isShared);
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function isShared();
 }
