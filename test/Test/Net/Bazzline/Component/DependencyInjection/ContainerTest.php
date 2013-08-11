@@ -60,14 +60,27 @@ class ContainerTest extends TestCase
     }
 
     /**
-     * @expectedException \Net\Bazzline\Component\DependencyInjection\InvalidArgumentException
-     * @expectedExceptionMessage Not supported so far.
-     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function testAddConsumer()
+    {
+        $this->container->addConsumer(__CLASS__);
+
+        $this->assertTrue($this->container->hasConsumer(__CLASS__));
+    }
+
+    /**
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
     public function testAddConsumerWithDeclaration()
     {
-        $this->container->addConsumer(__CLASS__, '', new Definition());
+        $definition = new Definition();
+
+        $this->container->addConsumer(__CLASS__, '', $definition);
+
+        $this->assertTrue($this->container->hasConsumer(__CLASS__));
+        $this->assertTrue($this->container->hasDefinition(__CLASS__));
     }
 }

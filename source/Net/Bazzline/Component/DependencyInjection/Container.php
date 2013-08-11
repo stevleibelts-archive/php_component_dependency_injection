@@ -28,6 +28,13 @@ class Container implements ContainerInterface
     /**
      * @var array
      * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-12
+     */
+    protected $notSharedObjects;
+
+    /**
+     * @var array
+     * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
     protected $sharedObjects;
@@ -40,6 +47,7 @@ class Container implements ContainerInterface
     {
         //@todo implement or use a collection
         $this->definitions = array();
+        $this->notSharedObjects = array();
         $this->sharedObjects = array();
     }
 
@@ -73,13 +81,16 @@ class Container implements ContainerInterface
             );
         }
 
+        //@todo move to separate method
         if (is_null($definition)) {
             $this->sharedObjects[$hash] = new $className();
         } else {
-            //@todo implement else
-            throw new InvalidArgumentException(
-                'Not supported so far.'
-            );
+            $this->addDefinition($hash, $definition);
+            if ($definition->isShared()) {
+                $this->sharedObjects[$hash] = new $className();
+            } else {
+                $this->notSharedObjects[$hash] = $className;
+            }
         }
 
         return $this;
@@ -98,7 +109,7 @@ class Container implements ContainerInterface
     {
         $hash = $this->generateHash($classNameOrAlias);
 
-        return (array_key_exists($hash, $this->sharedObjects));
+        return (array_key_exists($hash, $this->sharedObjects) || array_key_exists($hash, $this->notSharedObjects));
     }
 
     /**
@@ -115,7 +126,10 @@ class Container implements ContainerInterface
     {
         $hash = $this->generateHash($classNameOrAlias);
 
-        return ($this->hasConsumer($classNameOrAlias)) ? $this->sharedObjects[$hash] : null;
+        return ($this->hasConsumer($classNameOrAlias)) ?
+            ((!is_null($this->sharedObjects[$hash])) ?
+                $this->sharedObjects[$hash] : $this->notSharedObjects[$hash])
+            : null;
     }
 
     /**
@@ -148,7 +162,7 @@ class Container implements ContainerInterface
      * @param string $hash
      * @param DefinitionInterface $definition
      * @return $this
-     * @throws \Net\Bazzline\Component\Converter\InvalidArgumentException
+     * @throws InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
@@ -160,7 +174,7 @@ class Container implements ContainerInterface
             );
         }
 
-        $this->definitions[$hash];
+        $this->definitions[$hash] = $definition;
 
         return $this;
     }
