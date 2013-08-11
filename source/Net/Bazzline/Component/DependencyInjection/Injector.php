@@ -18,11 +18,11 @@ use SplObjectStorage;
 class Injector implements InjectorInterface
 {
     /**
-     * @var SplObjectStorage
+     * @var array
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    protected $instancePool;
+    protected $classNames;
 
     /**
      * @author stev leibelt <artodeto@arcor.de>
@@ -30,7 +30,8 @@ class Injector implements InjectorInterface
      */
     public function __construct()
     {
-        $this->instancePool = new SplObjectStorage();
+        //@todo implement or use a collection
+        $this->classNames = array();
     }
 
     /**
@@ -38,17 +39,18 @@ class Injector implements InjectorInterface
      *  injector simple creates a new instance of that class by each call.
      *
      * @param string $className
+     * @param string $alias
      * @param DeclarationInterface $declaration
      * @return $this
      * @throws RuntimeException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
+     * @todo implement alias support
      */
-    public function addConsumer($className, DeclarationInterface $declaration = null)
+    public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null)
     {
-        $consumerAlreadyAdded = false;
-
-        if ($consumerAlreadyAdded) {
+        if ($this->hasConsumer($className)
+            || ($alias != '' && $this->hasConsumer($alias))) {
             throw new RuntimeException(
                 'Consumer "' . $className . '" already added.'
             );
@@ -56,12 +58,12 @@ class Injector implements InjectorInterface
 
         if (!class_exists($className)) {
             throw new RuntimeException(
-                'File "' . $className . '" could not be found.'
+                'Class "' . $className . '" does not exists.'
             );
         }
 
         if (is_null($declaration)) {
-            $this->instancePool->attach(new $className);
+            $this->classNames[$className] = new $className();
         }
         //@todo implement else
 
@@ -71,12 +73,12 @@ class Injector implements InjectorInterface
     /**
      * Validates if given class name where add as consumer to the injector.
      *
-     * @param string $className
+     * @param string $classNameOrAlias
      * @return boolean
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-09-10
      */
-    public function hasConsumer($className)
+    public function hasConsumer($classNameOrAlias)
     {
         // TODO: Implement hasConsumer() method.
     }
