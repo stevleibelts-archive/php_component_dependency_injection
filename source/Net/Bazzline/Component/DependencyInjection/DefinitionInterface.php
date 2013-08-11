@@ -58,7 +58,7 @@ interface DefinitionInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
-    public function hasMethodsCalls();
+    public function hasMethodCalls();
 
     /**
      * @param mixed $argument
