@@ -14,9 +14,17 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * @since 2013-08-10
  * @todo implement method that converts \My\Class to My_Class as well as \\My\\Class
  * @todo implement circular reference detection like https://github.com/symfony/DependencyInjection/blob/master/ContainerBuilder.php:475
+ * @todo implement reference or link so that an alias can use the same definition as another class (if definition exists already)
  */
 class Container implements ContainerInterface
 {
+    /**
+     * @var array
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected $definitions;
+
     /**
      * @var array
      * @author stev leibelt <artodeto@arcor.de>
@@ -31,6 +39,7 @@ class Container implements ContainerInterface
     public function __construct()
     {
         //@todo implement or use a collection
+        $this->definitions = array();
         $this->sharedObjects = array();
     }
 
@@ -46,7 +55,7 @@ class Container implements ContainerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function register($className, $alias = '', DefinitionInterface $definition = null)
+    public function addConsumer($className, $alias = '', DefinitionInterface $definition = null)
     {
         $id = (strlen($alias) > 0) ? $alias : $className;
 
@@ -107,6 +116,53 @@ class Container implements ContainerInterface
         $hash = $this->generateHash($classNameOrAlias);
 
         return ($this->hasConsumer($classNameOrAlias)) ? $this->sharedObjects[$hash] : null;
+    }
+
+    /**
+     * @param string $classNameOrAlias
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function hasDefinition($classNameOrAlias)
+    {
+        $hash = $this->generateHash($classNameOrAlias);
+
+        return (array_key_exists($hash, $this->definitions));
+    }
+
+    /**
+     * @param string $classNameOrAlias
+     * @return null|DefinitionInterface
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function getDefinition($classNameOrAlias)
+    {
+        $hash = $this->generateHash($classNameOrAlias);
+
+        return ($this->hasDefinition($classNameOrAlias)) ? $this->definitions[$hash] : null;
+    }
+
+    /**
+     * @param string $hash
+     * @param DefinitionInterface $definition
+     * @return $this
+     * @throws \Net\Bazzline\Component\Converter\InvalidArgumentException
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected function addDefinition($hash, DefinitionInterface $definition)
+    {
+        if ($this->hasDefinition($hash)) {
+            throw new InvalidArgumentException(
+                'Definition already already added for "' . $hash . '".'
+            );
+        }
+
+        $this->definitions[$hash];
+
+        return $this;
     }
 
     /**

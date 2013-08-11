@@ -27,7 +27,7 @@ interface ContainerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    public function register($className, $alias = '', DefinitionInterface $definition = null);
+    public function addConsumer($className, $alias = '', DefinitionInterface $definition = null);
 
     /**
      * Validates if given class name where add as consumer to the container.
@@ -48,4 +48,20 @@ interface ContainerInterface
      * @since 2013-08-10
      */
     public function getConsumer($classNameOrAlias);
+
+    /**
+     * @param string $classNameOrAlias
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function hasDefinition($classNameOrAlias);
+
+    /**
+     * @param string $classNameOrAlias
+     * @return null|DefinitionInterface
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function getDefinition($classNameOrAlias);
 }

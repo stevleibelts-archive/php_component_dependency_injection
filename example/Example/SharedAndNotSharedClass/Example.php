@@ -67,9 +67,11 @@ class Example
         $this->classOne = '\\Example\\SharedAndNotSharedClass\\One';
         $this->classTwo = '\\Example\\SharedAndNotSharedClass\\Two';
         $definitionTwo = new Definition();
+        $definitionTwo->setShared(false);
 
         $this->container = new Container();
-        $this->container->register($this->classOne);
+        $this->container->addConsumer($this->classOne);
+        $this->container->addConsumer($this->classTwo, '', $definitionTwo);
 
         return $this;
     }
@@ -81,20 +83,26 @@ class Example
     public function andRun()
     {
         $objectOne = $this->container->getConsumer($this->classOne);
-        $objectTwo = $this->container->getConsumer($this->classTwo);
+        $objectTwo = $this->container->getConsumer($this->classOne);
+        $objectThree = $this->container->getConsumer($this->classTwo);
+        $objectFour = $this->container->getConsumer($this->classTwo);
         /**
-         * @var \Example\AddClassAndCallIt\Basic $objectOne
-         * @var \Example\AddClassAndCallIt\Basic $objectTwo
+         * @var \Example\SharedAndNotSharedClass\One $objectOne
+         * @var \Example\SharedAndNotSharedClass\One $objectTwo
+         * @var \Example\SharedAndNotSharedClass\Two $objectThree
+         * @var \Example\SharedAndNotSharedClass\Two $objectFour
          */
+        echo str_repeat('-', 16) . PHP_EOL;
         echo 'Container has consumer "' . $this->classOne . '"?: ' . ($this->container->hasConsumer($this->classOne) ? 'yes' : 'no') . PHP_EOL;
-        echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;
-        echo var_export($objectOne, true);
-        echo 'Adding property to second reference of same instance.'. PHP_EOL;
-        $objectTwo->setMyProperty('thats my property');
-        echo 'Calling getMyProperty on first object: "' . $objectOne->getMyProperty() . '"' . PHP_EOL;
-        echo 'Calling getMyProperty on second object: "' . $objectTwo->getMyProperty() . '"' . PHP_EOL;
-        echo 'Vardump of second created object by the container.' . PHP_EOL . PHP_EOL;
-        echo var_export($objectTwo, true);
-        echo PHP_EOL;
+        echo 'Container has consumer "' . $this->classTwo . '"?: ' . ($this->container->hasConsumer($this->classTwo) ? 'yes' : 'no') . PHP_EOL;
+        echo str_repeat('-', 16) . PHP_EOL;
+        echo 'Class "' . $this->classOne . '" is shared.' . PHP_EOL;
+        echo 'Class "' . $this->classTwo . '" is not shared.' . PHP_EOL;
+        echo str_repeat('-', 16) . PHP_EOL;
+        echo 'Object hash and class of object one "' . spl_object_hash($objectOne) . ' ' . get_class($objectOne) . PHP_EOL;
+        echo 'Object hash and class of object two "' . spl_object_hash($objectTwo) . ' ' . get_class($objectTwo) . PHP_EOL;
+        echo 'Object hash and class of object three "' . spl_object_hash($objectThree) . ' ' . get_class($objectThree) . PHP_EOL;
+        echo 'Object hash and class of object four "' . spl_object_hash($objectFour) . ' ' . get_class($objectFour) . PHP_EOL;
+        echo str_repeat('-', 16) . PHP_EOL;
     }
 }

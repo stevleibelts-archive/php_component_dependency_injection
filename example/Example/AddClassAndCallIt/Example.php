@@ -58,7 +58,7 @@ class Example
     {
         $this->className = '\\Example\\AddClassAndCallIt\\Basic';
         $this->container = new Container();
-        $this->container->register($this->className);
+        $this->container->addConsumer($this->className);
 
         return $this;
     }

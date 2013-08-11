@@ -43,7 +43,7 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerWithNotExistingClass()
     {
-        $this->container->register('\\Not\\Existing\\Class');
+        $this->container->addConsumer('\\Not\\Existing\\Class');
     }
 
     /**
@@ -55,8 +55,8 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerTwoTimes()
     {
-        $this->container->register(__CLASS__);
-        $this->container->register(__CLASS__);
+        $this->container->addConsumer(__CLASS__);
+        $this->container->addConsumer(__CLASS__);
     }
 
     /**
@@ -68,6 +68,6 @@ class ContainerTest extends TestCase
      */
     public function testAddConsumerWithDeclaration()
     {
-        $this->container->register(__CLASS__, '', new Definition());
+        $this->container->addConsumer(__CLASS__, '', new Definition());
     }
 }
