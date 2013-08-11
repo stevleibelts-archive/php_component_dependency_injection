@@ -6,7 +6,7 @@
 
 namespace Net\Bazzline\Component\DependencyInjection;
 
-use SplObjectStorage;
+use RuntimeException;
 
 /**
  * Class Container
@@ -64,6 +64,11 @@ class Container implements ContainerInterface
 
         if (is_null($declaration)) {
             $this->classNames[$className] = new $className();
+echo var_export($this->classNames, true) . PHP_EOL;
+        } else {
+            throw new RuntimeException(
+                'Not supported so far.'
+            );
         }
         //@todo implement else
 
