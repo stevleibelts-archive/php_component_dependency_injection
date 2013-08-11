@@ -54,6 +54,13 @@ interface DefinitionInterface
     public function setMethodCalls(array $methodCalls);
 
     /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function hasMethodsCalls();
+
+    /**
      * @param mixed $argument
      * @return int - index or replaced argument
      * @author stev leibelt <artodeto@arcor.de>
@@ -94,4 +101,11 @@ interface DefinitionInterface
      * @since 2013-07-29
      */
     public function setArguments(array $parameters);
+
+    /**
+     * @return bool
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function hasArguments();
 }

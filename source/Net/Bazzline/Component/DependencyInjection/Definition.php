@@ -76,6 +76,14 @@ class Definition implements DefinitionInterface
     /**
      * {@inheritdoc}
      */
+    public function hasMethodCalls()
+    {
+        return (!empty($this->methodCalls));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function addArgument($value)
     {
         $this->arguments[] = $value;
@@ -132,5 +140,13 @@ class Definition implements DefinitionInterface
         $this->arguments = $arguments;
 
         return count($this->arguments);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasArguments()
+    {
+        return (!empty($this->arguments));
     }
 }
