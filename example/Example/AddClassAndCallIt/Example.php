@@ -75,15 +75,17 @@ class Example
          * @var \Example\AddClassAndCallIt\Basic $objectOne
          * @var \Example\AddClassAndCallIt\Basic $objectTwo
          */
+        echo str_repeat('-', 16) . PHP_EOL;
         echo 'Container has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
         echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;
-        echo var_export($objectOne, true);
+        echo var_export($objectOne, true) . PHP_EOL;
+        echo str_repeat('-', 16) . PHP_EOL;
         echo 'Adding property to second reference of same instance.'. PHP_EOL;
         $objectTwo->setMyProperty('thats my property');
         echo 'Calling getMyProperty on first object: "' . $objectOne->getMyProperty() . '"' . PHP_EOL;
         echo 'Calling getMyProperty on second object: "' . $objectTwo->getMyProperty() . '"' . PHP_EOL;
         echo 'Vardump of second created object by the container.' . PHP_EOL . PHP_EOL;
-        echo var_export($objectTwo, true);
-        echo PHP_EOL;
+        echo var_export($objectTwo, true) . PHP_EOL;
+        echo str_repeat('-', 16) . PHP_EOL;
     }
 }
