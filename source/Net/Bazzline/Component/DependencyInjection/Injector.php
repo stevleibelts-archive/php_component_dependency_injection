@@ -80,7 +80,7 @@ class Injector implements InjectorInterface
      */
     public function hasConsumer($classNameOrAlias)
     {
-        return (array_key_exists($classNameOrAlias, $this->classNames);
+        return (array_key_exists($classNameOrAlias, $this->classNames));
     }
 
     /**
