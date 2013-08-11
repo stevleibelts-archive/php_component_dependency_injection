@@ -24,6 +24,13 @@ Example::create()
 class Example
 {
     /**
+     * @var string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected $className;
+
+    /**
      * @var \Net\Bazzline\Component\DependencyInjection\ContainerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
@@ -49,8 +56,9 @@ class Example
      */
     public function setup()
     {
+        $this->className = '\\Example\\UseContainerAsFactory\\Basic';
         $this->container = new Container();
-        $this->container->addConsumer('\\Example\\UseContainerAsFactory\\BasicClass');
+        $this->container->addConsumer($this->className);
 
         return $this;
     }
@@ -61,18 +69,21 @@ class Example
      */
     public function andRun()
     {
-        $className = '\\Example\UsecontainerAsFactory\\BasicClass';
-        $objectOne = $this->container->getConsumer($className);
-        $objectTwo = $this->container->getConsumer($className);
-
-        echo 'Conainter has consumer "' . $className . '"?: ' . ($this->container->hasConsumer($className) ? 'yes' : 'no') . PHP_EOL;
-        echo 'Vardump of first created object by the container.' . PHP_EOL;
+        $objectOne = $this->container->getConsumer($this->className);
+        $objectTwo = $this->container->getConsumer($this->className);
+        /**
+         * @var \Example\UseContainerAsFactory\Basic $objectOne
+         * @var \Example\UseContainerAsFactory\Basic $objectTwo
+         */
+        echo 'Conainter has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
+        echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;
         echo var_export($objectOne, true);
         echo 'Adding property to second reference of same instance.'. PHP_EOL;
         $objectTwo->setMyProperty('thats my property');
-        echo 'Calling getMyProperty on first object: "' . $objectOne->getMyProperty . '"' . PHP_EOL;
-        echo 'Calling getMyProperty on second object: "' . $objectTwo->getMyProperty . '"' . PHP_EOL;
-        echo 'Vardump of second created object by the container.' . PHP_EOL;
+        echo 'Calling getMyProperty on first object: "' . $objectOne->getMyProperty() . '"' . PHP_EOL;
+        echo 'Calling getMyProperty on second object: "' . $objectTwo->getMyProperty() . '"' . PHP_EOL;
+        echo 'Vardump of second created object by the container.' . PHP_EOL . PHP_EOL;
         echo var_export($objectTwo, true);
+        echo PHP_EOL;
     }
 }

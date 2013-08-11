@@ -49,10 +49,12 @@ class Container implements ContainerInterface
      */
     public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null)
     {
-        if ($this->hasConsumer($className)
+        $hash = $this->generateHash($className, $alias);
+        if ($this->hasConsumer($hash)
             || ($alias != '' && $this->hasConsumer($alias))) {
+            //@todo add output of className and alias
             throw new RuntimeException(
-                'Consumer "' . $className . '" already added.'
+                'Consumer "' . $hash . '" already added.'
             );
         }
 
@@ -63,8 +65,7 @@ class Container implements ContainerInterface
         }
 
         if (is_null($declaration)) {
-            $this->classNames[$className] = new $className();
-echo var_export($this->classNames, true) . PHP_EOL;
+            $this->classNames[$hash] = new $className();
         } else {
             throw new RuntimeException(
                 'Not supported so far.'
@@ -85,7 +86,9 @@ echo var_export($this->classNames, true) . PHP_EOL;
      */
     public function hasConsumer($classNameOrAlias)
     {
-        return (array_key_exists($classNameOrAlias, $this->classNames));
+        $hash = $this->generateHash($classNameOrAlias);
+
+        return (array_key_exists($hash, $this->classNames));
     }
 
     /**
@@ -99,6 +102,20 @@ echo var_export($this->classNames, true) . PHP_EOL;
      */
     public function getConsumer($classNameOrAlias)
     {
-        return ($this->hasConsumer($classNameOrAlias)) ? $this->classNames[$classNameOrAlias] : null;
+        $hash = $this->generateHash($classNameOrAlias);
+
+        return ($this->hasConsumer($classNameOrAlias)) ? $this->classNames[$hash] : null;
+    }
+
+    /**
+     * @param string $className
+     * @param string $alias
+     * @return string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected function generateHash($className, $alias = '')
+    {
+        return (is_null($alias)) ? sha1($alias) : sha1($className);
     }
 }

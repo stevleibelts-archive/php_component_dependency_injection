@@ -7,13 +7,13 @@
 namespace Example\UseContainerAsFactory;
 
 /**
- * Class BasicClass
+ * Class Basic
  *
  * @package Example\UseContainerAsFactory
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-11
  */
-class BasicClass
+class Basic
 {
     /**
      * @var mixed
