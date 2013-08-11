@@ -26,7 +26,7 @@ php component dependency injection by using a specification container
 
 # Notes
 
-## Definition
+## Declaration
 
     Dependency injection involves at least three elements:
 

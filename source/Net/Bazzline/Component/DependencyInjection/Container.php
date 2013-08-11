@@ -40,7 +40,7 @@ class Container implements ContainerInterface
      * @param string $alias
      * @param DeclarationInterface $declaration
      * @return $this
-     * @throws RuntimeException
+     * @throws RuntimeException|InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      * @todo implement alias support
@@ -64,7 +64,7 @@ class Container implements ContainerInterface
         if (is_null($declaration)) {
             $this->classNames[$hash] = new $className();
         } else {
-            throw new RuntimeException(
+            throw new InvalidArgumentException(
                 'Not supported so far.'
             );
         }

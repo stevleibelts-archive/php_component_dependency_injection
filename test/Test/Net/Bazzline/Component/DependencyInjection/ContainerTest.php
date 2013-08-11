@@ -7,6 +7,7 @@
 namespace Test\Net\Bazzline\Component\DependencyInjection;
 
 use Net\Bazzline\Component\DependencyInjection\Container;
+use Net\Bazzline\Component\DependencyInjection\Declaration;
 
 /**
  * Class ContainerTest
@@ -56,5 +57,17 @@ class ContainerTest extends TestCase
     {
         $this->container->addConsumer(__CLASS__);
         $this->container->addConsumer(__CLASS__);
+    }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\DependencyInjection\InvalidArgumentException
+     * @expectedExceptionMessage Not supported so far.
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function testAddConsumerWithDeclaration()
+    {
+        $this->container->addConsumer(__CLASS__, '', new Declaration());
     }
 }
