@@ -12,6 +12,8 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-10
+ * @todo implement method that converts \My\Class to My_Class as well as \\My\\Class
+ * @todo implement circular reference detection like https://github.com/symfony/DependencyInjection/blob/master/ContainerBuilder.php:475
  */
 class Container implements ContainerInterface
 {
@@ -65,11 +67,11 @@ class Container implements ContainerInterface
         if (is_null($definition)) {
             $this->sharedObjects[$hash] = new $className();
         } else {
+            //@todo implement else
             throw new InvalidArgumentException(
                 'Not supported so far.'
             );
         }
-        //@todo implement else
 
         return $this;
     }
@@ -81,6 +83,7 @@ class Container implements ContainerInterface
      * @return boolean
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-09-10
+     * @todo implement "|| method_exists($this, 'get' . ucfirst($classNameOrAlias))"
      */
     public function hasConsumer($classNameOrAlias)
     {
@@ -97,6 +100,7 @@ class Container implements ContainerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      * @todo handle how to deal with shared and not shared objects
+     * @todo implement "|| method_exists($this, 'get' . ucfirst($classNameOrAlias))"
      */
     public function getConsumer($classNameOrAlias)
     {

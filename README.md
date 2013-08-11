@@ -17,7 +17,7 @@ php component dependency injection by using a specification container
 
 # Steps / Roadmap
 
-* Implement container where you can add a class and call it
+* Implement container where you can add a class and call it (done)
 * Implement simple container that holds factories for [creating shared and not shared objects](http://tutorials.jenkov.com/dependency-injection/butterfly-container.html) (like a factory but with instance pooling)
 * Implement dependency injection with reflection class (as strategy)
 * Implement configuration as strategy
