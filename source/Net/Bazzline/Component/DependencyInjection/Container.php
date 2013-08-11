@@ -47,14 +47,13 @@ class Container implements ContainerInterface
      */
     public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null)
     {
-        $hash = $this->generateHash($className, $alias);
-        if ($this->hasConsumer($hash)
-            || ($alias != '' && $this->hasConsumer($alias))) {
-            //@todo add output of className and alias
+        if ($this->hasConsumer($className, $alias)) {
             throw new RuntimeException(
-                'Consumer "' . $hash . '" already added.'
+                'Consumer "' . $className . '" already added.'
             );
         }
+
+        $hash = $this->generateHash($className, $alias);
 
         if (!class_exists($className)) {
             throw new RuntimeException(

@@ -40,8 +40,21 @@ class ContainerTest extends TestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
-    public function testTryToAddNotExistingClass()
+    public function testAddConsumerWithNotExistingClass()
     {
         $this->container->addConsumer('\\Not\\Existing\\Class');
+    }
+
+    /**
+     * @expectedException \Net\Bazzline\Component\DependencyInjection\RuntimeException
+     * @expectedExceptionMessage Consumer "Test\Net\Bazzline\Component\DependencyInjection\ContainerTest" already added.
+     *
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    public function testAddConsumerTwoTimes()
+    {
+        $this->container->addConsumer(__CLASS__);
+        $this->container->addConsumer(__CLASS__);
     }
 }
