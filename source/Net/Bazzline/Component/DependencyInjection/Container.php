@@ -127,8 +127,8 @@ class Container implements ContainerInterface
         $hash = $this->generateHash($classNameOrAlias);
 
         return ($this->hasConsumer($classNameOrAlias)) ?
-            ((!is_null($this->sharedObjects[$hash])) ?
-                $this->sharedObjects[$hash] : $this->notSharedObjects[$hash])
+            ((isset($this->sharedObjects[$hash])) ?
+                $this->sharedObjects[$hash] : new $this->notSharedObjects[$hash])
             : null;
     }
 

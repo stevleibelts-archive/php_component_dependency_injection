@@ -35,6 +35,15 @@ class ContainerTest extends TestCase
     }
 
     /**
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-12
+     */
+    protected function tearDown()
+    {
+        Mockery::close();
+    }
+
+    /**
      * @expectedException \Net\Bazzline\Component\DependencyInjection\RuntimeException
      * @expectedExceptionMessage Class "\Not\Existing\Class" does not exists.
      *
@@ -53,7 +62,7 @@ class ContainerTest extends TestCase
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
-    public function testAddConsumerTwoTimes()
+    public function AtestAddConsumerTwoTimes()
     {
         $this->container->addConsumer(__CLASS__);
         $this->container->addConsumer(__CLASS__);
@@ -82,5 +91,67 @@ class ContainerTest extends TestCase
 
         $this->assertTrue($this->container->hasConsumer(__CLASS__));
         $this->assertTrue($this->container->hasDefinition(__CLASS__));
+    }
+
+    /**
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-12
+     */
+    public function testAddConsumerWithSharedByDefault()
+    {
+        $this->container->addConsumer(__CLASS__);
+
+        $objectOne = $this->container->getConsumer(__CLASS__);
+        $objectTwo = $this->container->getConsumer(__CLASS__);
+        $objectHashOne = spl_object_hash($objectOne);
+        $objectHashTwo = spl_object_hash($objectTwo);
+
+        $this->assertEquals($objectOne, $objectTwo);
+        $this->assertTrue(($objectOne === $objectTwo));
+        $this->assertEquals($objectHashOne, $objectHashTwo);
+    }
+
+    /**
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-12
+     */
+    public function testAddConsumerWithDefinitionAndSharedByDefault()
+    {
+        $definition = Mockery::mock('Net\Bazzline\Component\DependencyInjection\Definition');
+        $definition->shouldReceive('IsShared')
+            ->andReturn(true)
+            ->once();
+        $this->container->addConsumer(__CLASS__, '', $definition);
+
+        $objectOne = $this->container->getConsumer(__CLASS__);
+        $objectTwo = $this->container->getConsumer(__CLASS__);
+        $objectHashOne = spl_object_hash($objectOne);
+        $objectHashTwo = spl_object_hash($objectTwo);
+
+        $this->assertEquals($objectOne, $objectTwo);
+        $this->assertTrue(($objectOne === $objectTwo));
+        $this->assertEquals($objectHashOne, $objectHashTwo);
+    }
+
+    /**
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-12
+     */
+    public function testAddConsumerWithDefinitionAndNotShared()
+    {
+        $definition = Mockery::mock('Net\Bazzline\Component\DependencyInjection\Definition');
+        $definition->shouldReceive('IsShared')
+            ->andReturn(false)
+            ->once();
+        $this->container->addConsumer(__CLASS__, '', $definition);
+
+        $objectOne = $this->container->getConsumer(__CLASS__);
+        $objectTwo = $this->container->getConsumer(__CLASS__);
+        $objectHashOne = spl_object_hash($objectOne);
+        $objectHashTwo = spl_object_hash($objectTwo);
+
+        $this->assertEquals($objectOne, $objectTwo);
+        $this->assertFalse(($objectOne === $objectTwo));
+        $this->assertNotEquals($objectHashOne, $objectHashTwo);
     }
 }
