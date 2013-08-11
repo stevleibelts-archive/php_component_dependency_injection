@@ -80,19 +80,20 @@ class Injector implements InjectorInterface
      */
     public function hasConsumer($classNameOrAlias)
     {
-        // TODO: Implement hasConsumer() method.
+        return (array_key_exists($classNameOrAlias, $this->classNames);
     }
 
     /**
      * Returns a new or shared instance of a given class name.
      *
-     * @param string $className
+     * @param string $classNameOrAlias
      * @return null|mixed|object
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
+     * @todo handle how to deal with shared and not shared objects
      */
-    public function getConsumer($className)
+    public function getConsumer($classNameOrAlias)
     {
-        // TODO: Implement getConsumer() method.
+        return ($this->hasConsumer($classNameOrAlias)) ? $this->classNames[$classNameOrAlias] : null;
     }
 }
