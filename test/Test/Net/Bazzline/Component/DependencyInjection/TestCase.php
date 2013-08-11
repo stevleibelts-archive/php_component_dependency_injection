@@ -4,7 +4,7 @@
  * @since 2013-08-11 
  */
 
-namespace Net\Bazzline\Component\DependencyInjection;
+namespace Test\Net\Bazzline\Component\DependencyInjection;
 
 use PHPUnit_Framework_TestCase;
 

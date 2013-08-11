@@ -6,8 +6,6 @@
 
 namespace Net\Bazzline\Component\DependencyInjection;
 
-use RuntimeException;
-
 /**
  * Class Container
  *
