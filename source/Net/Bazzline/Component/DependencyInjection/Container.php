@@ -20,7 +20,7 @@ class Container implements ContainerInterface
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
      */
-    protected $classNames;
+    protected $sharedObjects;
 
     /**
      * @author stev leibelt <artodeto@arcor.de>
@@ -29,7 +29,7 @@ class Container implements ContainerInterface
     public function __construct()
     {
         //@todo implement or use a collection
-        $this->classNames = array();
+        $this->sharedObjects = array();
     }
 
     /**
@@ -39,21 +39,22 @@ class Container implements ContainerInterface
      * @param string $className
      * @param string $alias
      * @param DefinitionInterface $definition
-     * @return $this
+     * @return string (consumer id)
      * @throws RuntimeException|InvalidArgumentException
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-10
-     * @todo implement alias support
      */
     public function register($className, $alias = '', DefinitionInterface $definition = null)
     {
-        if ($this->hasConsumer($className, $alias)) {
+        $id = (strlen($alias) > 0) ? $alias : $className;
+
+        if ($this->hasConsumer($id)) {
             throw new RuntimeException(
-                'Consumer "' . $className . '" already added.'
+                'Consumer "' . $id . '" already added.'
             );
         }
 
-        $hash = $this->generateHash($className, $alias);
+        $hash = $this->generateHash($id);
 
         if (!class_exists($className)) {
             throw new RuntimeException(
@@ -62,7 +63,7 @@ class Container implements ContainerInterface
         }
 
         if (is_null($definition)) {
-            $this->classNames[$hash] = new $className();
+            $this->sharedObjects[$hash] = new $className();
         } else {
             throw new InvalidArgumentException(
                 'Not supported so far.'
@@ -85,7 +86,7 @@ class Container implements ContainerInterface
     {
         $hash = $this->generateHash($classNameOrAlias);
 
-        return (array_key_exists($hash, $this->classNames));
+        return (array_key_exists($hash, $this->sharedObjects));
     }
 
     /**
@@ -101,18 +102,17 @@ class Container implements ContainerInterface
     {
         $hash = $this->generateHash($classNameOrAlias);
 
-        return ($this->hasConsumer($classNameOrAlias)) ? $this->classNames[$hash] : null;
+        return ($this->hasConsumer($classNameOrAlias)) ? $this->sharedObjects[$hash] : null;
     }
 
     /**
-     * @param string $className
-     * @param string $alias
+     * @param string $id
      * @return string
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
-    protected function generateHash($className, $alias = '')
+    protected function generateHash($id)
     {
-        return (is_null($alias)) ? sha1($alias) : sha1($className);
+        return sha1($id);
     }
 }
