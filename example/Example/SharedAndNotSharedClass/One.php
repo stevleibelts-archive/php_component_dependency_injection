@@ -7,13 +7,13 @@
 namespace Example\SharedAndNotSharedClass;
 
 /**
- * Class Basic
+ * Class Two
  *
  * @package Example\SharedAndNotSharedClass
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-11
  */
-class Basic
+class One
 {
     /**
      * @var mixed

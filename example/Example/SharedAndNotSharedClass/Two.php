@@ -4,16 +4,16 @@
  * @since 2013-08-11 
  */
 
-namespace Example\AddClassAndCallIt;
+namespace Example\SharedAndNotSharedClass;
 
 /**
  * Class Two
  *
- * @package Example\AddClassAndCallIt
+ * @package Example\SharedAndNotSharedClass
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-11
  */
-class Basic
+class Two
 {
     /**
      * @var mixed

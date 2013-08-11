@@ -28,7 +28,14 @@ class Example
      * @author stev leibelt <artodeto@arcor.de>
      * @since 2013-08-11
      */
-    protected $className;
+    protected $classOne;
+
+    /**
+     * @var string
+     * @author stev leibelt <artodeto@arcor.de>
+     * @since 2013-08-11
+     */
+    protected $classTwo;
 
     /**
      * @var \Net\Bazzline\Component\DependencyInjection\ContainerInterface
@@ -56,9 +63,10 @@ class Example
      */
     public function setup()
     {
-        $this->className = '\\Example\\SharedAndNotSharedClass\\Basic';
+        $this->classOne = '\\Example\\SharedAndNotSharedClass\\One';
+        $this->classOne = '\\Example\\SharedAndNotSharedClass\\Two';
         $this->container = new Container();
-        $this->container->register($this->className);
+        $this->container->register($this->classOne);
 
         return $this;
     }
@@ -69,13 +77,13 @@ class Example
      */
     public function andRun()
     {
-        $objectOne = $this->container->getConsumer($this->className);
-        $objectTwo = $this->container->getConsumer($this->className);
+        $objectOne = $this->container->getConsumer($this->classOne);
+        $objectTwo = $this->container->getConsumer($this->classOne);
         /**
          * @var \Example\AddClassAndCallIt\Basic $objectOne
          * @var \Example\AddClassAndCallIt\Basic $objectTwo
          */
-        echo 'Conainter has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
+        echo 'Container has consumer "' . $this->classOne . '"?: ' . ($this->container->hasConsumer($this->classOne) ? 'yes' : 'no') . PHP_EOL;
         echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;
         echo var_export($objectOne, true);
         echo 'Adding property to second reference of same instance.'. PHP_EOL;

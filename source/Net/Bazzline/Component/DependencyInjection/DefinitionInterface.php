@@ -16,7 +16,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
                 'foo'
             'setUserAndScope':
                 'My\User'
-                'Basic'
+                'Two'
                 */
 /**
  * Class DefinitionInterface.

@@ -75,7 +75,7 @@ class Example
          * @var \Example\AddClassAndCallIt\Basic $objectOne
          * @var \Example\AddClassAndCallIt\Basic $objectTwo
          */
-        echo 'Conainter has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
+        echo 'Container has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
         echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;
         echo var_export($objectOne, true);
         echo 'Adding property to second reference of same instance.'. PHP_EOL;
