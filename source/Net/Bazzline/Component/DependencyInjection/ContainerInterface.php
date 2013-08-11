@@ -7,17 +7,17 @@
 namespace Net\Bazzline\Component\DependencyInjection;
 
 /**
- * Class InjectorInterface
+ * Class ContainerInterface
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-10
  */
-interface InjectorInterface
+interface ContainerInterface
 {
     /**
-     * Adds a class to the injector. If you do not provide a declaration, the
-     *  injector simple creates a new instance of that class by each call.
+     * Adds a class to the container. If you do not provide a declaration, the
+     *  container simple creates a new instance of that class by each call.
      *
      * @param string $className
      * @param string $alias
@@ -30,7 +30,7 @@ interface InjectorInterface
     public function addConsumer($className, $alias = '', DeclarationInterface $declaration = null);
 
     /**
-     * Validates if given class name where add as consumer to the injector.
+     * Validates if given class name where add as consumer to the container.
      *
      * @param string $classNameOrAlias
      * @return boolean

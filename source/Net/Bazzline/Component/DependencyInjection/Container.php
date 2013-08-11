@@ -9,13 +9,13 @@ namespace Net\Bazzline\Component\DependencyInjection;
 use SplObjectStorage;
 
 /**
- * Class Injector
+ * Class Container
  *
  * @package Net\Bazzline\Component\DependencyInjection
  * @author stev leibelt <artodeto@arcor.de>
  * @since 2013-08-10
  */
-class Injector implements InjectorInterface
+class Container implements ContainerInterface
 {
     /**
      * @var array
@@ -35,8 +35,8 @@ class Injector implements InjectorInterface
     }
 
     /**
-     * Adds a class to the injector. If you do not provide a declaration, the
-     *  injector simple creates a new instance of that class by each call.
+     * Adds a class to the container. If you do not provide a declaration, the
+     *  container simple creates a new instance of that class by each call.
      *
      * @param string $className
      * @param string $alias
@@ -71,7 +71,7 @@ class Injector implements InjectorInterface
     }
 
     /**
-     * Validates if given class name where add as consumer to the injector.
+     * Validates if given class name where add as consumer to the container.
      *
      * @param string $classNameOrAlias
      * @return boolean
