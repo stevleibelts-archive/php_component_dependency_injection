@@ -4,7 +4,7 @@
  * @since 2013-08-09 
  */
 
-namespace Example\UseContainerAsFactory;
+namespace Example\AddClassAndCallIt;
 
 use Net\Bazzline\Component\DependencyInjection\Container;
 
@@ -56,7 +56,7 @@ class Example
      */
     public function setup()
     {
-        $this->className = '\\Example\\UseContainerAsFactory\\Basic';
+        $this->className = '\\Example\\AddClassAndCallIt\\Basic';
         $this->container = new Container();
         $this->container->register($this->className);
 
@@ -72,8 +72,8 @@ class Example
         $objectOne = $this->container->getConsumer($this->className);
         $objectTwo = $this->container->getConsumer($this->className);
         /**
-         * @var \Example\UseContainerAsFactory\Basic $objectOne
-         * @var \Example\UseContainerAsFactory\Basic $objectTwo
+         * @var \Example\AddClassAndCallIt\Basic $objectOne
+         * @var \Example\AddClassAndCallIt\Basic $objectTwo
          */
         echo 'Conainter has consumer "' . $this->className . '"?: ' . ($this->container->hasConsumer($this->className) ? 'yes' : 'no') . PHP_EOL;
         echo 'Vardump of first created object by the container.' . PHP_EOL . PHP_EOL;

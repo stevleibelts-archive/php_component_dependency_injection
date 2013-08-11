@@ -4,7 +4,7 @@
  * @since 2013-08-11 
  */
 
-namespace Example\UseContainerAsFactory;
+namespace Example\AddClassAndCallIt;
 
 /**
  * Class Basic
