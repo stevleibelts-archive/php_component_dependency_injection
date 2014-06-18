@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-11 
  */
 
@@ -10,21 +10,21 @@ namespace Example\SharedAndNotSharedClass;
  * Class Two
  *
  * @package Example\SharedAndNotSharedClass
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-11
  */
 class Two
 {
     /**
      * @var mixed
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     protected $myProperty;
 
     /**
      * @return mixed
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function getMyProperty()
@@ -35,7 +35,7 @@ class Two
     /**
      * @param mixed $myProperty
      * @return $this
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function setMyProperty($myProperty)

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-07-29 
  */
 
@@ -10,34 +10,34 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * Class Definition
  *
  * @package Net\Bazzline\Component\DependencyInjection
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-07-29
  */
 class Definition implements DefinitionInterface
 {
     /**
      * @var array
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-07-29
      */
     protected $arguments;
 
     /**
      * @var
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     protected $isShared;
 
     /**
      * @var array
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-07-29
      */
     protected $methodCalls;
 
     /**
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-07-28
      */
     public function __construct()

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-10 
  */
 
@@ -10,7 +10,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * Class ContainerInterface
  *
  * @package Net\Bazzline\Component\DependencyInjection
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-10
  */
 interface ContainerInterface
@@ -24,7 +24,7 @@ interface ContainerInterface
      * @param DefinitionInterface $definition
      * @return string (consumer id)
      * @throws RuntimeException
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      */
     public function addConsumer($className, $alias = '', DefinitionInterface $definition = null);
@@ -34,7 +34,7 @@ interface ContainerInterface
      *
      * @param string $classNameOrAlias
      * @return boolean
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-09-10
      */
     public function hasConsumer($classNameOrAlias);
@@ -44,7 +44,7 @@ interface ContainerInterface
      *
      * @param string $classNameOrAlias
      * @return null|mixed|object
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      */
     public function getConsumer($classNameOrAlias);
@@ -52,7 +52,7 @@ interface ContainerInterface
     /**
      * @param string $classNameOrAlias
      * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function hasDefinition($classNameOrAlias);
@@ -60,7 +60,7 @@ interface ContainerInterface
     /**
      * @param string $classNameOrAlias
      * @return null|DefinitionInterface
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function getDefinition($classNameOrAlias);

@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-11 
  */
 
@@ -12,7 +12,7 @@ use PHPUnit_Framework_TestCase;
  * Class TestCase
  *
  * @package Net\Bazzline\Component\DependencyInjection
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-11
  */
 class TestCase extends PHPUnit_Framework_TestCase {}

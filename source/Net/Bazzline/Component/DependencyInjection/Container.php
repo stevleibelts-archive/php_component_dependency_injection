@@ -1,6 +1,6 @@
 <?php
 /**
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-10 
  */
 
@@ -10,7 +10,7 @@ namespace Net\Bazzline\Component\DependencyInjection;
  * Class Container
  *
  * @package Net\Bazzline\Component\DependencyInjection
- * @author stev leibelt <artodeto@arcor.de>
+ * @author stev leibelt <artodeto@bazzline.net>
  * @since 2013-08-10
  * @todo implement method that converts \My\Class to My_Class as well as \\My\\Class
  * @todo implement circular reference detection like https://github.com/symfony/DependencyInjection/blob/master/ContainerBuilder.php:475
@@ -20,27 +20,27 @@ class Container implements ContainerInterface
 {
     /**
      * @var array
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     protected $definitions;
 
     /**
      * @var array
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-12
      */
     protected $notSharedObjects;
 
     /**
      * @var array
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      */
     protected $sharedObjects;
 
     /**
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      */
     public function __construct()
@@ -60,7 +60,7 @@ class Container implements ContainerInterface
      * @param DefinitionInterface $definition
      * @return string (consumer id)
      * @throws RuntimeException|InvalidArgumentException
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      */
     public function addConsumer($className, $alias = '', DefinitionInterface $definition = null)
@@ -101,7 +101,7 @@ class Container implements ContainerInterface
      *
      * @param string $classNameOrAlias
      * @return boolean
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-09-10
      * @todo implement "|| method_exists($this, 'get' . ucfirst($classNameOrAlias))"
      */
@@ -117,7 +117,7 @@ class Container implements ContainerInterface
      *
      * @param string $classNameOrAlias
      * @return null|mixed|object
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-10
      * @todo handle how to deal with shared and not shared objects
      * @todo implement "|| method_exists($this, 'get' . ucfirst($classNameOrAlias))"
@@ -135,7 +135,7 @@ class Container implements ContainerInterface
     /**
      * @param string $classNameOrAlias
      * @return bool
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function hasDefinition($classNameOrAlias)
@@ -148,7 +148,7 @@ class Container implements ContainerInterface
     /**
      * @param string $classNameOrAlias
      * @return null|DefinitionInterface
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     public function getDefinition($classNameOrAlias)
@@ -163,7 +163,7 @@ class Container implements ContainerInterface
      * @param DefinitionInterface $definition
      * @return $this
      * @throws InvalidArgumentException
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     protected function addDefinition($hash, DefinitionInterface $definition)
@@ -182,7 +182,7 @@ class Container implements ContainerInterface
     /**
      * @param string $id
      * @return string
-     * @author stev leibelt <artodeto@arcor.de>
+     * @author stev leibelt <artodeto@bazzline.net>
      * @since 2013-08-11
      */
     protected function generateHash($id)
